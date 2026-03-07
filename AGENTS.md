@@ -26,6 +26,18 @@ To prepare files for a separate public GitHub Pages repository:
 pwsh -File .\scripts\export-pages.ps1 -Destination C:\path\to\pages-repo
 ```
 
+The standard publish flow from this private repo is:
+
+```bash
+pwsh -File .\scripts\publish-pages.ps1
+```
+
+To stage, commit, and push the public repo in one run:
+
+```bash
+pwsh -File .\scripts\publish-pages.ps1 -Stage -CommitMessage "Publish site update" -Push
+```
+
 ## Coding Style & Naming Conventions
 Use plain HTML and CSS only. Keep the composition minimal and avoid introducing JavaScript, frameworks, or a build pipeline unless the project direction explicitly changes. Follow the existing root-level file structure, keep formatting readable, and use descriptive lowercase asset names where possible.
 
@@ -36,9 +48,11 @@ Minimum verification for each change:
 2. Verify the page still works with JavaScript disabled or unavailable.
 3. Recheck the composition at narrow and wide viewport widths after layout changes.
 4. If the Pages export workflow changes, run `pwsh -File .\tests\export-pages.check.ps1`.
+5. If the guided publish workflow changes, run `pwsh -File .\tests\publish-pages.check.ps1`.
 
 ## Commit & Pull Request Guidelines
 Use short imperative commit messages such as `feat: flatten site to static html` or `docs: update static site notes`. Keep commits focused and reversible. Pull requests should include a concise summary, the exact verification steps used, and screenshots for visual changes when relevant.
 
 ## Security & Content Notes
 Do not commit secrets, local machine paths, or generated artefacts. Review any root-level asset carefully because it will ship directly with the site. Preserve `legacy/` untouched unless a task explicitly targets historical content.
+Treat the sibling repo at `C:\matt\WEBSITES\matthewemery-pages` as publish-only; edit the site in this private repo.

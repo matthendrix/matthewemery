@@ -11,6 +11,7 @@ Personal website — `matthewemery.com.au` v3. A deliberately minimal single-pag
 ```bash
 start index.html  # Open the static page directly
 pwsh -File .\scripts\export-pages.ps1 -Destination C:\path\to\pages-repo  # Export only public site files
+pwsh -File .\scripts\publish-pages.ps1  # Standard guided publish flow into the public Pages repo
 ```
 
 No build step. No package manager. No test suite. No linting setup.
@@ -23,7 +24,9 @@ This is a no-build static site. No framework and no JavaScript.
 - `styles.css` — all active styling; uses `clamp()` for fluid sizing, mobile breakpoint at 720px
 - `this.jpg` — the primary image asset loaded directly from the repo root
 - `scripts/export-pages.ps1` — copies only the deployable public files into a separate Pages repo or folder
+- `scripts/publish-pages.ps1` — guided wrapper that exports into the public Pages repo and can optionally stage, commit, and push
 - `tests/export-pages.check.ps1` — verifies the export allow-list and file integrity
+- `tests/publish-pages.check.ps1` — verifies the guided publish workflow against a temporary Git repo and remote
 - `legacy/` — frozen v1 PHP site (`legacy/public_html/`). Read-only reference. Do not modify.
 - `docs/plans/` — design and implementation decision records
 - `docs/github-pages-export.md` — notes for the two-repo private-source/public-pages workflow
@@ -35,3 +38,4 @@ This is a no-build static site. No framework and no JavaScript.
 - Do not reintroduce JavaScript, package tooling, or a build process unless explicitly requested.
 - The image (`./this.jpg`) must load with `fetchpriority="high"` and `decoding="async"`.
 - Keep public deployment separate from this repo when privacy matters; export only the allow-listed site files.
+- Edit only in this private repo. Treat `C:\matt\WEBSITES\matthewemery-pages` as a publish target, not a second working repo.
