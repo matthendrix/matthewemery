@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.codex-vite-dev.log
+.codex-vite-dev.err

@@ -1,0 +1,42 @@
+:root {
+  color: #ddd;
+  background: #101010;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: #101010;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.composition {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.image-frame {
+  margin: 0;
+}
+
+.image-frame img {
+  max-height: 90vh;
+}
