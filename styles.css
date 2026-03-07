@@ -225,13 +225,19 @@ img {
 }
 
 .essay-band,
-.colophon {
+.colophon,
+.manifesto-band,
+.gallery-band,
+.contact-band {
   position: relative;
   padding: 0 clamp(18px, 3vw, 40px) clamp(28px, 4vw, 48px);
 }
 
 .essay-shell,
-.colophon-shell {
+.colophon-shell,
+.manifesto-shell,
+.gallery-shell,
+.contact-shell {
   width: min(100%, 1240px);
   margin: 0 auto;
 }
@@ -331,6 +337,173 @@ img {
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.manifesto-shell {
+  padding: clamp(18px, 3vw, 36px) 0 clamp(56px, 7vw, 92px);
+}
+
+.manifesto-head {
+  max-width: 540px;
+  margin-bottom: clamp(26px, 4vw, 42px);
+}
+
+.manifesto-head h2,
+.gallery-intro h2,
+.contact-copy h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.8vw, 4.8rem);
+  line-height: 0.94;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1fr);
+  gap: clamp(24px, 5vw, 86px);
+  align-items: start;
+}
+
+.manifesto-lead {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.5vw, 2.3rem);
+  line-height: 1.18;
+  color: var(--text);
+  max-width: 16ch;
+}
+
+.manifesto-copy {
+  display: grid;
+  gap: 22px;
+  padding-top: 8px;
+}
+
+.manifesto-copy p,
+.contact-copy p {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.gallery-shell {
+  padding: clamp(8px, 1vw, 16px) 0 clamp(56px, 7vw, 88px);
+}
+
+.gallery-intro {
+  max-width: 600px;
+  margin-bottom: clamp(26px, 4vw, 40px);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(16px, 2vw, 24px);
+  align-items: stretch;
+}
+
+.gallery-card {
+  position: relative;
+  min-height: 248px;
+  padding: 30px 28px 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0)),
+    rgba(17, 13, 11, 0.64);
+  border: 1px solid rgba(216, 177, 132, 0.12);
+  box-shadow:
+    0 22px 34px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.gallery-card-large {
+  grid-row: span 2;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(216, 177, 132, 0.12), transparent 0 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0)),
+    rgba(17, 13, 11, 0.72);
+}
+
+.accent-card {
+  background:
+    linear-gradient(135deg, rgba(216, 177, 132, 0.14), rgba(216, 177, 132, 0.02) 36%, rgba(17, 13, 11, 0.7) 78%),
+    rgba(17, 13, 11, 0.72);
+}
+
+.card-index,
+.contact-label {
+  margin: 0 0 18px;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(216, 177, 132, 0.74);
+}
+
+.gallery-card h3 {
+  margin: 0 0 16px;
+  font-size: clamp(1.6rem, 2vw, 2.3rem);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.gallery-card p {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 28ch;
+}
+
+.gallery-card .text-link {
+  margin-top: auto;
+  padding-top: 26px;
+}
+
+.contact-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 0.8fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: end;
+  padding: clamp(6px, 1vw, 14px) 0 54px;
+}
+
+.contact-copy {
+  max-width: 680px;
+}
+
+.contact-panel {
+  padding: 26px 24px 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.026), rgba(255, 255, 255, 0)),
+    rgba(17, 13, 11, 0.68);
+  border: 1px solid rgba(216, 177, 132, 0.14);
+  box-shadow:
+    0 22px 34px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.contact-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: var(--accent);
 }
 
 .text-link {
@@ -436,6 +609,9 @@ img {
 
   .essay-band,
   .colophon,
+  .manifesto-band,
+  .gallery-band,
+  .contact-band,
   .closing-note {
     padding-left: 18px;
     padding-right: 18px;
@@ -453,6 +629,17 @@ img {
 
   .colophon-grid {
     grid-template-columns: 1fr;
+  }
+
+  .manifesto-grid,
+  .gallery-grid,
+  .contact-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-card-large {
+    grid-row: auto;
+    min-height: 300px;
   }
 
   .closing-shell {
