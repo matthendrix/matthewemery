@@ -5,15 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matthew Emery</title>
     <meta name="description" content="Matthew Emery" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="composition" aria-label="Landing page">
-      <div class="composition-shell">
-        <figure class="image-frame">
-          <img src="./this.jpg" alt="" decoding="async" fetchpriority="high" />
-        </figure>
-      </div>
+    <main class="page" aria-label="Landing page">
+      <section class="composition">
+        <div class="atmosphere" aria-hidden="true"></div>
+        <div class="composition-shell">
+          <section class="masthead" aria-label="Introduction">
+            <div class="masthead-meta" aria-label="Page details">
+              <span>Matthew Emery</span>
+              <span>Editorial landing</span>
+              <span>2026</span>
+            </div>
+            <p class="eyebrow">Personal site</p>
+            <h1>Matthew Emery</h1>
+            <p class="lede">
+              A quiet editorial frame for image, mood, and presence.
+            </p>
+            <p class="pull-note">
+              Reduced to the essential: image, atmosphere, and a few deliberate
+              lines.
+            </p>
+          </section>
+          <figure class="image-frame">
+            <div class="image-halo" aria-hidden="true"></div>
+            <img src="./this.jpg" alt="" decoding="async" fetchpriority="high" />
+            <figcaption class="image-caption">
+              <span class="caption-rule" aria-hidden="true"></span>
+              A single-frame introduction.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="essay-band" aria-labelledby="essay-title">
+        <div class="essay-shell">
+          <p class="section-tag">Afterword</p>
+          <div class="essay-copy">
+            <h2 id="essay-title">A site kept deliberately narrow.</h2>
+            <p>
+              This space is not built to explain everything. It holds a mood,
+              a face, a measure of restraint, and enough room for the edges to
+              stay visible.
+            </p>
+            <p>
+              The point is not volume. It is signal. A small number of details,
+              shaped carefully, can say more than a page trying to account for
+              itself.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="colophon" aria-labelledby="colophon-title">
+        <div class="colophon-shell">
+          <div class="colophon-intro">
+            <p class="section-tag">Colophon</p>
+            <h2 id="colophon-title">A compact public record.</h2>
+            <p class="colophon-lede">
+              Enough context to read the page, not so much that it collapses
+              under explanation.
+            </p>
+          </div>
+
+          <div class="colophon-grid">
+            <article class="colophon-card">
+              <h3>Approach</h3>
+              <p>
+                Static, direct, and intentionally lean. The published state and
+                the visible state stay close to each other.
+              </p>
+            </article>
+
+            <article class="colophon-card">
+              <h3>Surface</h3>
+              <p>
+                Built with plain HTML and CSS. No framework, no build chain, no
+                ornamental complexity behind the curtain.
+              </p>
+            </article>
+
+            <article class="colophon-card">
+              <h3>Public Path</h3>
+              <p>
+                The source for this version lives in the open and can be read
+                as part of the work itself.
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/matthendrix/matthewemery"
+              >
+                View repository
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer class="closing-note" aria-label="Closing note">
+        <div class="closing-shell">
+          <p class="closing-mark">M.E.</p>
+          <p class="closing-copy">
+            Built as a small public surface. Meant to stay sharp.
+          </p>
+        </div>
+      </footer>
     </main>
   </body>
 </html>
