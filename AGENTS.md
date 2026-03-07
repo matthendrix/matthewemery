@@ -1,45 +1,35 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository now has two clear zones. Active v2 work lives at the root: `index.html`, `package.json`, `src/main.js`, and `src/styles.css`. Static public assets belong in `public/`. Legacy v1 files are preserved under `legacy/public_html/` and `legacy/_archive/`; treat that directory as read-only reference material unless you are intentionally restoring old content.
+This repository now has two clear zones. Active v3 work is a flat static site at the root: `index.html`, `styles.css`, and `this.jpg`. Legacy v1 files are preserved under `legacy/public_html/` and `legacy/_archive/`; treat that directory as read-only reference material unless you are intentionally restoring old content.
 
 ## Build, Test, and Development Commands
-Install dependencies with:
+There is no build step and no dependency install.
 
 ```bash
-npm install
+start index.html
 ```
 
-Run the local development server with:
+For a browser check with JavaScript disabled by architecture, open the page directly from disk:
 
 ```bash
-npm run dev
+start C:\matt\WEBSITES\matthewemery.com.au\index.html
 ```
 
-Create a production build with:
-
-```bash
-npm run build
-```
-
-Preview the built site locally with:
-
-```bash
-npm run preview
-```
+If you want to serve the static files over HTTP for a secondary check, use any simple local static server, but do not add build tooling back into the repo.
 
 ## Coding Style & Naming Conventions
-Use plain HTML, CSS, and vanilla JavaScript. Keep the composition minimal and avoid adding framework abstractions unless the project direction changes. Follow the existing style in `src/`: small files, direct DOM logic, and readable formatting with consistent indentation. Use lowercase, hyphen-free asset names where possible, and keep file names descriptive.
+Use plain HTML and CSS only. Keep the composition minimal and avoid introducing JavaScript, frameworks, or a build pipeline unless the project direction explicitly changes. Follow the existing root-level file structure, keep formatting readable, and use descriptive lowercase asset names where possible.
 
 ## Testing Guidelines
-There is no automated test suite yet. Minimum verification for each change:
+Minimum verification for each change:
 
-1. Run `npm run build` and confirm it succeeds.
-2. Run `npm run dev` and check the page in a browser.
+1. Open `index.html` directly in a browser and confirm the composition renders.
+2. Verify the page still works with JavaScript disabled or unavailable.
 3. Recheck the composition at narrow and wide viewport widths after layout changes.
 
 ## Commit & Pull Request Guidelines
-Use short imperative commit messages such as `feat: adjust landing composition` or `chore: move legacy assets`. Keep commits focused and reversible. Pull requests should include a concise summary, the commands used for verification, and screenshots or short recordings for visual changes.
+Use short imperative commit messages such as `feat: flatten site to static html` or `docs: update static site notes`. Keep commits focused and reversible. Pull requests should include a concise summary, the exact verification steps used, and screenshots for visual changes when relevant.
 
 ## Security & Content Notes
-Do not commit secrets, local machine paths, or generated artefacts such as `node_modules/` or `dist/`. Review anything placed in `public/` carefully because it will be shipped as a public asset.
+Do not commit secrets, local machine paths, or generated artefacts. Review any root-level asset carefully because it will ship directly with the site. Preserve `legacy/` untouched unless a task explicitly targets historical content.
