@@ -1,35 +1,45 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is a minimal PHP site. Production files live in `public_html/`, with `public_html/index.php` as the main entry point and static assets such as `favicon.ico`, `favicon.gif`, and `this.jpg` beside it. Use `_archive/` only for historical assets; do not reference archived files from production pages unless that is an intentional content restore.
+This repository now has two clear zones. Active v2 work lives at the root: `index.html`, `package.json`, `src/main.js`, and `src/styles.css`. Static public assets belong in `public/`. Legacy v1 files are preserved under `legacy/public_html/` and `legacy/_archive/`; treat that directory as read-only reference material unless you are intentionally restoring old content.
 
 ## Build, Test, and Development Commands
-There is no build pipeline in this snapshot. Use a local PHP server to preview changes:
+Install dependencies with:
 
 ```bash
-php -S localhost:8000 -t public_html
+npm install
 ```
 
-Open `http://localhost:8000` to verify layout and assets. For syntax checks, run:
+Run the local development server with:
 
 ```bash
-php -l public_html/index.php
+npm run dev
 ```
 
-If PHP is not installed locally, validate by opening the site through your normal local web stack.
+Create a production build with:
+
+```bash
+npm run build
+```
+
+Preview the built site locally with:
+
+```bash
+npm run preview
+```
 
 ## Coding Style & Naming Conventions
-Keep changes small and preserve the current flat structure. Follow the existing style in `public_html/index.php`: simple PHP/HTML documents, inline CSS only when the page is intentionally self-contained, and readable indentation consistent with the file you are editing. Use lowercase file names for web assets (`favicon.ico`, `this.jpg`) and prefer descriptive names when adding new files.
+Use plain HTML, CSS, and vanilla JavaScript. Keep the composition minimal and avoid adding framework abstractions unless the project direction changes. Follow the existing style in `src/`: small files, direct DOM logic, and readable formatting with consistent indentation. Use lowercase, hyphen-free asset names where possible, and keep file names descriptive.
 
 ## Testing Guidelines
-No automated test suite is present. Minimum verification is:
+There is no automated test suite yet. Minimum verification for each change:
 
-1. Run `php -l` on edited PHP files.
-2. Load the page locally and confirm assets render correctly.
-3. Recheck responsive behavior in a narrow browser width after any HTML or CSS change.
+1. Run `npm run build` and confirm it succeeds.
+2. Run `npm run dev` and check the page in a browser.
+3. Recheck the composition at narrow and wide viewport widths after layout changes.
 
 ## Commit & Pull Request Guidelines
-Git history is not available in this workspace snapshot, so follow standard imperative commit messages such as `Update homepage image markup` or `Tighten body spacing`. Keep commits focused on one change. Pull requests should include a short summary, affected paths, manual verification steps, and screenshots for any visual change.
+Use short imperative commit messages such as `feat: adjust landing composition` or `chore: move legacy assets`. Keep commits focused and reversible. Pull requests should include a concise summary, the commands used for verification, and screenshots or short recordings for visual changes.
 
 ## Security & Content Notes
-Avoid committing secrets, environment-specific paths, or machine-specific config. Because this site is served directly from `public_html/`, review every added file for public exposure before merging.
+Do not commit secrets, local machine paths, or generated artefacts such as `node_modules/` or `dist/`. Review anything placed in `public/` carefully because it will be shipped as a public asset.
