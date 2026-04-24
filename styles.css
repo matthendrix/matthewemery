@@ -160,6 +160,40 @@ img {
   color: rgba(239, 228, 210, 0.72);
 }
 
+.signal-list {
+  margin: 26px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.signal-list div {
+  display: grid;
+  grid-template-columns: minmax(78px, 92px) minmax(0, 1fr);
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(216, 177, 132, 0.1);
+}
+
+.signal-list dt,
+.signal-list dd {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.signal-list dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(216, 177, 132, 0.82);
+}
+
+.signal-list dd {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(239, 228, 210, 0.82);
+}
+
 .section-tag {
   margin: 0 0 18px;
   font-family: "Manrope", "Segoe UI", sans-serif;
@@ -588,6 +622,11 @@ img {
 
   .lede {
     max-width: 24ch;
+  }
+
+  .signal-list div {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 
   .image-frame {
